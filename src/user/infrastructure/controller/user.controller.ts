@@ -7,8 +7,8 @@ export class UserController {
     }
 
     public createUser = async (req: Request, res: Response) =>{
-        const { name, email } = req.body
-        const user =  await this.userUseCase.register({ name, email })
+        const { name, email, password } = req.body
+        const user =  await this.userUseCase.register({ name, email, password })
 
         if (!user) return res.status(400)
         res.status(200).json(user)

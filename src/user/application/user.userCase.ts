@@ -16,8 +16,8 @@ export class UserUseCase {
         return users
     }
 
-    public async register({ name, email }: { name: string, email: string }) {
-        const user = new UserValue({ name, email })
+    public async register({ name, email, password }: { name: string, email: string, password: string}) {
+        const user = new UserValue({ name, email, password })
         const userCreated = await this.userRepository.createUser(user)
         return userCreated
     }
