@@ -2,13 +2,13 @@ import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
-import userRoute from './infrastructure/routes/user.route'
+import userRoute from './infrastructure/routes/post.route'
 import dbConnection from '../utils/db'
 
 
 dbConnection()
 const app = express()
-const port = process.env.PORT_USER
+const port = process.env.PORT_POST
 
 app.use(express.json())
 app.use(cors())
