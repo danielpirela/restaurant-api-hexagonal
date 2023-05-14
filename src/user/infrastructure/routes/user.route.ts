@@ -8,7 +8,7 @@ const router = Router()
 const mongoRepository = new MongoRepository()
 const userUseCase = new UserUseCase(mongoRepository)
 const userController = new UserController(userUseCase)
-
+router.post('/login', userController.loginUser)
 router.get('/', userController.getUsers)
 router.get('/:id', userController.getUserById)
 router.post('/register', userController.createUser)

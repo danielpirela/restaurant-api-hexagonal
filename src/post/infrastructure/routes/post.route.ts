@@ -6,13 +6,13 @@ import { MongoRepository } from '../repository/mongo.repository'
 const router = Router()
 
 const mongoRepository = new MongoRepository()
-const userUseCase = new PostUseCase(mongoRepository)
-const userController = new PostController(userUseCase)
+const postUseCase = new PostUseCase(mongoRepository)
+const postController = new PostController(postUseCase)
 
-router.get('/post', userController.getPosts)
-router.get('/post/:id', userController.getPostById)
-router.post('/post/create', userController.createPost)
-router.put('/post/:id', userController.updatePost)
-router.delete('post/:id', userController.deletePost)
+router.get('/post', postController.getPosts)
+router.get('/post/:id', postController.getPostById)
+router.post('/post/create', postController.createPost)
+router.put('/post/:id', postController.updatePost)
+router.delete('/post/:id', postController.deletePost)
 
 export default router

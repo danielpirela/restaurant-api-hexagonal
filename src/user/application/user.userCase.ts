@@ -6,6 +6,11 @@ export class UserUseCase {
         this.userRepository = userRepository
     }
 
+    public async loginUser(email: string){
+        const user = await this.userRepository.getUserByEmail(email)
+        return user
+    }
+
     public async getUserProfile (uuid: string) {
         const user = await this.userRepository.getUser(uuid)
         return user

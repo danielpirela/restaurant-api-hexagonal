@@ -2,7 +2,7 @@ import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
-import userRoute from './infrastructure/routes/post.route'
+import postRoute from './infrastructure/routes/post.route'
 import dbConnection from '../utils/db'
 
 
@@ -15,7 +15,7 @@ app.use(cors())
 app.use(morgan('dev'))
 
 // * routes
-app.use(userRoute)
+app.use(postRoute)
 
 app.listen(port, () => console.log(`Server on port ${port}`))
 

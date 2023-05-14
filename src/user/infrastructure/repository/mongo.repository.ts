@@ -4,6 +4,11 @@ import userModel from '../model/user.schema'
 
 export class MongoRepository implements UserRepository {
 
+    async getUserByEmail(email: string): Promise<UserEntity | null> {
+        const user:UserEntity | null = await userModel.findOne({email})
+        return user
+    }
+
     async getAllUsers(): Promise<UserEntity[] | null > {
         const user:UserEntity[] | null = await userModel.find()
         return user

@@ -1,9 +1,17 @@
 import { Request, Response } from 'express'
 import { UserUseCase } from '../../application/user.userCase'
-
 export class UserController {
     constructor(private userUseCase: UserUseCase) {
         this.userUseCase = userUseCase
+    }
+
+    public loginUser = async (req: Request, res: Response) => {
+        const {email,password} = req.body
+        const user = await this.userUseCase.loginUser(email)
+
+        if (user?.password === password) return res.status(200).json(user)
+
+        res.status(403).json()
     }
 
     public createUser = async (req: Request, res: Response) =>{
