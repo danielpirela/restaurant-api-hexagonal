@@ -1,4 +1,4 @@
-export interface PostEntity {
+export interface ReviewEntity {
     uuid: string;
     title: string;
     content: string;

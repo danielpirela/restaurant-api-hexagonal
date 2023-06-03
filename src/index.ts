@@ -1,2 +1,2 @@
 import './user/user.app'
-import './post/post.app'
+import './review/review.app'

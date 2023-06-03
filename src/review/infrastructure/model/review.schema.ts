@@ -1,12 +1,12 @@
 import {Schema, model} from 'mongoose'
 
-const PostSchema = new Schema(
+const ReviewSchema = new Schema(
     {
         uuid: {type: String, unique: true, require: true},
         title:{type: String},
         content: {type: String},
     }
 )
-const postModel = model('posts', PostSchema)
+const reviewModel = model('reviews', ReviewSchema)
 
-export default postModel
+export default reviewModel

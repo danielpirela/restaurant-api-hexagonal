@@ -1,7 +1,7 @@
-import { PostEntity } from './post.entity'
+import { ReviewEntity } from './review.entity'
 import { v4 as uuid } from 'uuid'
 
-export class PostValue implements PostEntity {
+export class ReviewValue implements ReviewEntity {
     uuid: string
     title: string
     content: string
