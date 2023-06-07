@@ -6,7 +6,7 @@ export class UserController {
     }
 
     public loginUser = async (req: Request, res: Response) => {
-        const {email,password} = req.body
+        const { email, password } = req.body
         const user = await this.userUseCase.loginUser(email)
 
         if (user?.password === password) return res.status(200).json(user)
@@ -14,9 +14,9 @@ export class UserController {
         res.status(403).json()
     }
 
-    public createUser = async (req: Request, res: Response) =>{
+    public createUser = async (req: Request, res: Response) => {
         const { name, email, password } = req.body
-        const user =  await this.userUseCase.register({ name, email, password })
+        const user = await this.userUseCase.register({ name, email, password })
 
         if (!user) return res.status(400)
         res.status(200).json(user)
@@ -30,7 +30,6 @@ export class UserController {
     }
 
     public getUserById = async (req: Request, res: Response) => {
-
         const { id } = req.params
         const user = await this.userUseCase.getUserProfile(id)
 
@@ -38,19 +37,19 @@ export class UserController {
         res.status(200).json(user)
     }
 
-    public updateUser = async (req: Request, res: Response) =>{
+    public updateUser = async (req: Request, res: Response) => {
         const { id } = req.params
         console.log(id)
         const { name, email } = req.body
-        const user =  await this.userUseCase.updateAccount(id, name, email)
+        const user = await this.userUseCase.updateAccount(id, name, email)
 
         if (!user) return res.status(400)
         res.status(200).json(user)
     }
 
-    public deleteUser = async (req: Request, res: Response) =>{
+    public deleteUser = async (req: Request, res: Response) => {
         const { id } = req.params
-        const user =  await this.userUseCase.deleteAccount(id)
+        const user = await this.userUseCase.deleteAccount(id)
 
         if (!user) return res.status(400)
         res.status(200).json(user)
