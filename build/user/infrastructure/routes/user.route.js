@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const user_controller_1 = require("../controller/user.controller");
+const user_userCase_1 = require("../../application/user.userCase");
+const mongo_repository_1 = require("../repository/mongo.repository");
+const router = (0, express_1.Router)();
+const mongoRepository = new mongo_repository_1.MongoRepository();
+const userUseCase = new user_userCase_1.UserUseCase(mongoRepository);
+const userController = new user_controller_1.UserController(userUseCase);
+router.post("/login", userController.loginUser);
+router.get("/", userController.getUsers);
+router.get("/:id", userController.getUserById);
+router.post("/register", userController.createUser);
+router.put("/:id", userController.updateUser);
+router.delete("/:id", userController.deleteUser);
+exports.default = router;

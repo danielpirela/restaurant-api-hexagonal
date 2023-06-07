@@ -1,5 +1,5 @@
 export interface ReviewEntity {
-    uuid: string;
-    title: string;
-    content: string;
+    uuid: string
+    title: string
+    content: string
 }
