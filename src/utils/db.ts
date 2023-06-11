@@ -12,10 +12,11 @@ const uri = `mongodb+srv://${userName}:${password}@cluster0.k2key.mongodb.net/to
 const dbConnection = async () => {
     try {
         mongoose.set('strictQuery', false)
-        const db =  await mongoose.connect(uri)
-        console.log(`data base connected successfully ${db.connection.db.databaseName}`)
-    }
-    catch (err) {
+        const db = await mongoose.connect(uri)
+        console.log(
+            `data base connected successfully ${db.connection.db.databaseName}`
+        )
+    } catch (err) {
         if (err instanceof Error) console.log(err)
     }
 }

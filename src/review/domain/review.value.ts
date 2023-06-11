@@ -6,7 +6,7 @@ export class ReviewValue implements ReviewEntity {
     title: string
     content: string
 
-    constructor ({title, content}:{title: string, content: string}) {
+    constructor({ title, content }: { title: string; content: string }) {
         this.uuid = uuid()
         this.title = title
         this.content = content
