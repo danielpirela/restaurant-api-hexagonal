@@ -14,10 +14,23 @@ export class ReviewController {
         res.status(200).json(review)
     }
 
-    public getReviews = async (req: Request, res: Response) => {
-        const reviews = await this.reviewUseCase.getReviews()
+    public getAllReviews = async (req: Request, res: Response) => {
+
+        const reviews = await this.reviewUseCase.getAllReviews()
 
         if (!reviews) return res.status(400)
+        res.status(200).json(reviews)
+    }
+
+    public getReviews = async (req: Request, res: Response) => {
+        const {offset, limit} = req.body
+        const reviewsTpm = await this.reviewUseCase.getReviews(offset, limit)
+
+        const reviews = reviewsTpm?.slice(offset, limit)
+
+        if (!reviews) return res.status(400)
+
+
         res.status(200).json(reviews)
     }
 

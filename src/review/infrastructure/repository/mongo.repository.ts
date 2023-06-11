@@ -12,6 +12,11 @@ export class MongoRepository implements ReviewRepository {
         const review:ReviewEntity | null = await reviewModel.findOne({ uuid })
         return review
     }
+    async getReviews(): Promise<ReviewEntity[] | null > {
+        const review:ReviewEntity[] | null = await reviewModel.find()
+        return review
+    }
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async createReview(reviewIn: ReviewEntity): Promise<any> {
         const review = await reviewModel.create(reviewIn)
