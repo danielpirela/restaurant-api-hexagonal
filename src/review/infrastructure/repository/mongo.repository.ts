@@ -17,7 +17,6 @@ export class MongoRepository implements ReviewRepository {
         return review
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async createReview(reviewIn: ReviewEntity): Promise<any> {
         const review = await reviewModel.create(reviewIn)
         return review

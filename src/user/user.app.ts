@@ -16,6 +16,6 @@ app.use(morgan('dev'))
 // * routes
 app.use(userRoute)
 
-app.listen(port, () => console.log(`Server on port ${port}`))
+app.listen(port)
 
 export default app
