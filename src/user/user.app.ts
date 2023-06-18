@@ -16,6 +16,6 @@ app.use(morgan('dev'))
 // * routes
 app.use(userRoute)
 
-app.listen(port)
+app.listen(port, '0.0.0.0')
 
 export default app
