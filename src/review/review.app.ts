@@ -7,7 +7,7 @@ import dbConnection from '../utils/db'
 
 dbConnection()
 const app = express()
-const port = process.env.PORT_REVIEW || 3004
+const port = 3004
 
 app.use(express.json())
 app.use(cors())

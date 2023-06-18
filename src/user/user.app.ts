@@ -7,7 +7,7 @@ import dbConnection from '../utils/db'
 
 dbConnection()
 const app = express()
-const port = process.env.PORT_USER || 3000
+const port = 3000
 
 app.use(express.json())
 app.use(cors())
