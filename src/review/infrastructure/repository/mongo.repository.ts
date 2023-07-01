@@ -3,17 +3,16 @@ import { ReviewRepository } from '../../domain/review.repository'
 import reviewModel from '../model/review.schema'
 
 export class MongoRepository implements ReviewRepository {
-
-    async getAllReviews(): Promise<ReviewEntity[] | null > {
-        const review:ReviewEntity[] | null = await reviewModel.find()
+    async getAllReviews(): Promise<ReviewEntity[] | null> {
+        const review: ReviewEntity[] | null = await reviewModel.find()
         return review
     }
     async getReview(uuid: string): Promise<ReviewEntity | null> {
-        const review:ReviewEntity | null = await reviewModel.findOne({ uuid })
+        const review: ReviewEntity | null = await reviewModel.findOne({ uuid })
         return review
     }
-    async getReviews(): Promise<ReviewEntity[] | null > {
-        const review:ReviewEntity[] | null = await reviewModel.find()
+    async getReviews(): Promise<ReviewEntity[] | null> {
+        const review: ReviewEntity[] | null = await reviewModel.find()
         return review
     }
 
@@ -23,12 +22,22 @@ export class MongoRepository implements ReviewRepository {
     }
 
     async deleteReview(uuid: string): Promise<ReviewEntity | null> {
-        const review:ReviewEntity | null = await reviewModel.findOneAndDelete({uuid})
+        const review: ReviewEntity | null = await reviewModel.findOneAndDelete({
+            uuid,
+        })
         return review
     }
 
-    async editReview(uuid: string, name: string, email: string): Promise<ReviewEntity | null> {
-        const review:ReviewEntity | null = await reviewModel.findOneAndUpdate({uuid}, {name, email}, {new:true})
+    async editReview(
+        uuid: string,
+        name: string,
+        email: string
+    ): Promise<ReviewEntity | null> {
+        const review: ReviewEntity | null = await reviewModel.findOneAndUpdate(
+            { uuid },
+            { name, email },
+            { new: true }
+        )
         return review
     }
 }
