@@ -8,3 +8,4 @@ export interface ReviewRepository {
     deleteReview(uuid: string): Promise<ReviewEntity | null>,
     editReview(uuid: string, title: string, content: string, rating: number): Promise<ReviewEntity | null>
 }
+
