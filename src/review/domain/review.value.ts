@@ -5,10 +5,12 @@ export class ReviewValue implements ReviewEntity {
     uuid: string
     title: string
     content: string
+    rating: number
 
-    constructor({ title, content }: { title: string; content: string }) {
+    constructor({ title, content, rating }: { title: string, content: string, rating: number }) {
         this.uuid = uuid()
         this.title = title
         this.content = content
+        this.rating = rating
     }
 }

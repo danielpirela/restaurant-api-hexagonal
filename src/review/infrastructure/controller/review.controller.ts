@@ -7,8 +7,8 @@ export class ReviewController {
     }
 
     public createReview = async (req: Request, res: Response) =>{
-        const { title, content} = req.body
-        const review =  await this.reviewUseCase.createReview({ title, content})
+        const { title, content, rating} = req.body
+        const review =  await this.reviewUseCase.createReview({ title, content, rating})
 
         if (!review) return res.status(400)
         res.status(200).json(review)
@@ -45,8 +45,8 @@ export class ReviewController {
 
     public updateReview = async (req: Request, res: Response) =>{
         const { id } = req.params
-        const { title, content } = req.body
-        const review =  await this.reviewUseCase.updateReview(id, title, content)
+        const { title, content, rating } = req.body
+        const review =  await this.reviewUseCase.updateReview(id, title, content, rating)
 
         if (!review) return res.status(400)
         res.status(200).json(review)

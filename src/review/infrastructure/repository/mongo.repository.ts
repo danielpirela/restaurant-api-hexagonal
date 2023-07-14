@@ -27,8 +27,8 @@ export class MongoRepository implements ReviewRepository {
         return review
     }
 
-    async editReview(uuid: string, name: string, email: string): Promise<ReviewEntity | null> {
-        const review:ReviewEntity | null = await reviewModel.findOneAndUpdate({uuid}, {name, email}, {new:true})
+    async editReview(uuid: string, title: string, content: string, rating: number): Promise<ReviewEntity | null> {
+        const review:ReviewEntity | null = await reviewModel.findOneAndUpdate({uuid}, {title, content,rating}, {new:true})
         return review
     }
 }

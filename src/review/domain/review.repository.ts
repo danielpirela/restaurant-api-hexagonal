@@ -6,5 +6,5 @@ export interface ReviewRepository {
     getReviews( offset: number, limit: number): Promise<ReviewEntity[] | null>
     createReview(reviewIn: ReviewEntity): Promise<ReviewEntity | null>,
     deleteReview(uuid: string): Promise<ReviewEntity | null>,
-    editReview(uuid: string, title: string, content: string): Promise<ReviewEntity | null>
+    editReview(uuid: string, title: string, content: string, rating: number): Promise<ReviewEntity | null>
 }

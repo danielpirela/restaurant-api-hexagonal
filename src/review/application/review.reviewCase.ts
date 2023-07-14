@@ -21,14 +21,14 @@ export class ReviewUseCase {
         return reviews
     }
 
-    public async createReview({ title, content}: { title: string, content: string}) {
-        const review = new ReviewValue({ title, content })
+    public async createReview({ title, content, rating}: { title: string, content: string, rating: number }) {
+        const review = new ReviewValue({ title, content, rating })
         const reviewCreated = await this.reviewRepository.createReview(review)
         return reviewCreated
     }
 
-    public async updateReview (uuid: string, title: string, content: string) {
-        const reviewUpdated = await this.reviewRepository.editReview(uuid, title, content)
+    public async updateReview (uuid: string, title: string, content: string, rating: number) {
+        const reviewUpdated = await this.reviewRepository.editReview(uuid, title, content, rating)
         return reviewUpdated
     }
 
