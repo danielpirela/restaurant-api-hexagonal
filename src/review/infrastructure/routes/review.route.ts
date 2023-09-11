@@ -10,7 +10,7 @@ const reviewUseCase = new ReviewUseCase(mongoRepository)
 const reviewController = new ReviewController(reviewUseCase)
 
 router.get('/review', reviewController.getAllReviews)
-router.get('/review/reviews', reviewController.getReviews)
+router.post('/reviews', reviewController.getReviews)
 router.get('/review/:id', reviewController.getReviewById)
 router.post('/review/create', reviewController.createReview)
 router.put('/review/:id', reviewController.updateReview)

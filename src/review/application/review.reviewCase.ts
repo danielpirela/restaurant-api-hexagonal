@@ -21,8 +21,8 @@ export class ReviewUseCase {
         return reviews
     }
 
-    public async createReview({ title, content, rating}: { title: string, content: string, rating: number }) {
-        const review = new ReviewValue({ title, content, rating })
+    public async createReview({ title, content, rating, userId}: { title: string, content: string, rating: number, userId: string}) {
+        const review = new ReviewValue({ title, content, rating, userId})
         const reviewCreated = await this.reviewRepository.createReview(review)
         return reviewCreated
     }
